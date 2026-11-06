@@ -2,6 +2,8 @@
 
 A React and Vite frontend for **kodcart**, an e-commerce application for browsing products, managing a shopping cart, placing orders, and administering the product catalog.
 
+The frontend works with the [kodcart backend](https://github.com/chandan2909/kodcart-backend), a Spring Boot REST API backed by MySQL and Razorpay.
+
 ## Features
 
 - Customer registration, login, logout, and protected routes
@@ -49,7 +51,7 @@ VITE_API_URL=http://localhost:9090
 VITE_RAZORPAY_KEY_ID=your_razorpay_test_key
 ```
 
-`VITE_API_URL` points to the backend origin (for example, `http://localhost:9090`); the frontend appends its `/api` and `/admin` request paths. The Vite proxy keeps local requests same-origin so the backend auth cookie is included. `VITE_RAZORPAY_KEY_ID` is the public Razorpay key used by the browser; payment secrets must remain in the backend.
+`VITE_API_URL` points to the backend API. The backend runs on port 9090 by default; see the [backend README](https://github.com/chandan2909/kodcart-backend#running-the-application) for database and server setup. Start the backend before testing authenticated, cart, order, admin, or checkout flows. `VITE_RAZORPAY_KEY_ID` is the public Razorpay key used by the browser; payment secrets must remain in the backend.
 
 ## Available scripts
 
