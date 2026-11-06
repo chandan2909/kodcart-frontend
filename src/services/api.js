@@ -1,8 +1,6 @@
-// Requests use the Vite proxy by default. If VITE_API_URL is set, it may be
-// either the backend origin or an origin ending in /api; request paths below
-// already include /api, so normalize that suffix away.
-const configuredBase = import.meta.env.VITE_API_URL || ''
-const API_BASE = configuredBase.replace(/\/+$/, '').replace(/\/api$/, '')
+// Every request goes through the Vite dev proxy (see vite.config.js), so paths
+// stay relative and the httpOnly authToken cookie travels with them.
+const API_BASE = import.meta.env.VITE_API_URL || ''
 
 export async function api(path, { method = 'GET', body } = {}) {
   const options = { method, credentials: 'include' }
