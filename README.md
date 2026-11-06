@@ -45,11 +45,11 @@ The development server is available at [http://localhost:5173](http://localhost:
 Create a `.env` file from `.env.example`:
 
 ```env
-VITE_API_URL=http://localhost:8080/api
+VITE_API_URL=http://localhost:9090
 VITE_RAZORPAY_KEY_ID=your_razorpay_test_key
 ```
 
-`VITE_API_URL` points to the backend API. `VITE_RAZORPAY_KEY_ID` is the public Razorpay key used by the browser; payment secrets must remain in the backend.
+`VITE_API_URL` points to the backend origin (for example, `http://localhost:9090`); the frontend appends its `/api` and `/admin` request paths. The Vite proxy keeps local requests same-origin so the backend auth cookie is included. `VITE_RAZORPAY_KEY_ID` is the public Razorpay key used by the browser; payment secrets must remain in the backend.
 
 ## Available scripts
 
